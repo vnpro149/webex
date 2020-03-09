@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "39f654cc-6296-4b98-8708-347eb8e693d4",
+		"name": "Webex Teams API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "List webhooks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://api.ciscospark.com/v1/webhooks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ciscospark",
+								"com"
+							],
+							"path": [
+								"v1",
+								"webhooks"
+							]
+						},
+						"description": "Lists all of your webhooks.\n\nhttps://developer.webex.com/endpoint-webhooks-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f69f827e-3135-4737-ad0f-6f6eb1120e8e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\": \"Webhook to Studenbot (all events, no filter)\",\n      \"resource\": \"all\",\n      \"event\": \"all\",\n      \"targetUrl\": \"https://00000000.ngrok.io/events\"\n    }"
+						},
+						"url": {
+							"raw": "https://api.ciscospark.com/v1/webhooks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ciscospark",
+								"com"
+							],
+							"path": [
+								"v1",
+								"webhooks"
+							]
+						},
+						"description": "Creates a webhook for messages/created event.\n\nNote that you'll need to change the requestb.in URI to your own to see the webhook in action.\n\nhttps://developer.webex.com/endpoint-webhooks-post.html"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4c6313b4-a9d3-4beb-a7f9-a2d1dfc646b4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "62db5ad5-6405-47a2-8d02-275138527e5d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1672f8a6-f1f7-4200-b14d-a695a70502eb",
+			"key": "roomId",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
